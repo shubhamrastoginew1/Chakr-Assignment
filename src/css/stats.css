@@ -1,0 +1,11 @@
+.stats-container {
+    background-color: #fff;
+    width: 32%;
+    height: 90%;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}

@@ -1,0 +1,15 @@
+:root {
+    --black: #131313;
+    --grey: #454545;
+}
+
+
+.search-container {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1.25rem;
+    border: 0.5px solid var(--grey);
+    padding: 0.4rem 0.7rem;
+    display: flex;
+    align-items: center;
+}

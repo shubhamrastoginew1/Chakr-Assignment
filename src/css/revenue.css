@@ -1,0 +1,16 @@
+:root {
+    --black: #131313;
+    --grey: #454545;
+}
+
+.revenue-container {
+    background-color: #fff;
+    width: 35%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}

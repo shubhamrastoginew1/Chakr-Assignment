@@ -1,0 +1,11 @@
+.top-states-container {
+    background-color: #fff;
+    width: 30%;
+    height: 100%;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
