@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, Title, Tooltip, LineElement, Legend, CategoryScale, LinearScale, PointElement, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { csv } from 'd3-fetch'; // Import d3-fetch for CSV parsing
+import DATA from '../../data.json';
 
 ChartJS.register(
     Title, Tooltip, LineElement, Legend,
@@ -60,10 +61,14 @@ function Graph() {
 
     const [ di, setD ] = useState(1);
 
+
+
+
     useEffect(() => {
         const fetchDataAndDownsample = async () => {
             try {
-                csv('../../dataset.csv').then(rawData => {
+                fetch('https://jsonplaceholder.typicode.com/todos/1').then(rawData => {
+                    rawData = DATA;
                     console.log("Fetched DATA", rawData);
 
                     const downsampledData = downsample(rawData);
