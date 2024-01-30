@@ -1,11 +1,18 @@
-.deals-container{
+.deals-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.deal-outer {
     background-color: #fff;
     width: 37%;
     height: 100%;
     border-radius: 1rem;
-    padding: 1rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+    padding: 1rem 1.5rem 0.2rem 1.5rem;
 }

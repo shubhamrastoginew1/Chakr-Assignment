@@ -7,9 +7,7 @@
 .sidebar-container {
     background-color: #FFFF;
     border-radius: 1rem;
-    /* margin: 1rem; */
     max-width: 20%;
-    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -19,7 +17,6 @@
 
 .sidebar-item-container {
     color: var(--black);
-    /* border: 2px solid grey; */
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -29,7 +26,6 @@
 
 .sidebar-upper {
     max-width: 100%;
-    /* border: 2px solid yellow; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;

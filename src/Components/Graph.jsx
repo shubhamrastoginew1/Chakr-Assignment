@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Chart as ChartJS, Title, Tooltip, LineElement, Legend, CategoryScale, LinearScale, PointElement, Filler } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { csv } from 'd3-fetch'; // Import d3-fetch for CSV parsing
 import DATA from '../../data.json';
 
 ChartJS.register(
@@ -51,8 +50,6 @@ function Graph() {
                 borderColor: 'green',
                 tension: 0,
                 fill: true,
-                // pointStyle: 'rect',
-                // pointBorderColor: 'blue',
                 pointBackgroundColor: 'black',
                 showLine: true
             }
@@ -67,43 +64,36 @@ function Graph() {
     useEffect(() => {
         const fetchDataAndDownsample = async () => {
             try {
-                fetch('https://jsonplaceholder.typicode.com/todos/1').then(rawData => {
-                    rawData = DATA;
-                    console.log("Fetched DATA", rawData);
+                console.log("Fetched DATA", DATA);
 
-                    const downsampledData = downsample(rawData);
+                const downsampledData = downsample(DATA);
+                if (di === 1)
+                    setD(downsampledData);
 
-                    // setData(downsampledData);
-                    if (di === 1)
-                        setD(downsampledData);
-
-                    console.log("Dddd", di);
-                    const labels = di.map(entry => {
-                        const midDate = entry.Timestamp.substring(5, 7);
-                        if (midDate === "06" || midDate === "07" || midDate === "01") {
-                            console.log(entry.Timestamp.substring(0, 4));
-                            return entry.Timestamp.substring(0, 4);
+                console.log("Dddd", di);
+                const labels = di.map(entry => {
+                    const midDate = entry.Timestamp.substring(5, 7);
+                    if (midDate === "06" || midDate === "07" || midDate === "01") {
+                        console.log(entry.Timestamp.substring(0, 4));
+                        return entry.Timestamp.substring(0, 4);
+                    }
+                    return "";
+                });
+                const profitPercentages = di.map(entry => parseFloat(entry[ 'Profit Percentage' ]));
+                setData({
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: "Profit Percentage",
+                            data: profitPercentages,
+                            backgroundColor: '#b9efb8',
+                            borderColor: '#b9efb8',
+                            tension: 0,
+                            fill: true,
+                            pointBackgroundColor: '#b9efb8',
+                            showLine: true
                         }
-                        return "";
-                    });
-                    const profitPercentages = di.map(entry => parseFloat(entry[ 'Profit Percentage' ]));
-                    setData({
-                        labels: labels,
-                        datasets: [
-                            {
-                                label: "Profit Percentage",
-                                data: profitPercentages,
-                                backgroundColor: '#b9efb8',
-                                borderColor: '#b9efb8',
-                                tension: 0,
-                                fill: true,
-                                // pointStyle: 'rect',
-                                // pointBorderColor: 'blue',
-                                pointBackgroundColor: '#b9efb8',
-                                showLine: true
-                            }
-                        ]
-                    })
+                    ]
                 })
 
             } catch (error) {
@@ -112,12 +102,6 @@ function Graph() {
         };
         fetchDataAndDownsample();
     }, [ di ]);
-
-    // const labels = d.map(entry => entry.Timestamp);
-    // const profitPercentages = d.map(entry => parseFloat(entry[ 'Profit Percentage' ]));
-
-    // console.log("DATA IN ABOUT", d);
-
 
 
     return (
