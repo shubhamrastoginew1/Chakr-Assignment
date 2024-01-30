@@ -2,6 +2,7 @@
 Deployed Link:- http://chakr-assignment.vercel.app
 
 ## Screenshot of UI
+<img width="1440" alt="Screenshot 2024-01-30 at 2 30 50 PM" src="https://github.com/shubhamrastoginew1/Chakr-Assignment/assets/86402183/c0a32707-2fcc-472a-91a1-b5ab963b5b7b">
 
 
 ## Tech Stack Used
